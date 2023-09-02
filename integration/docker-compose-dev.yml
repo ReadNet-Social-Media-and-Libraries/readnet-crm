@@ -1,0 +1,30 @@
+version: "3.8"
+name: "readnet-crm"
+services:
+  # ---------------  PostgreSQL ---------------
+  db:
+    build:
+      context: postgresql
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: readnet-crm
+      POSTGRES_PASSWORD: readnet-crm
+      POSTGRES_DB: readnetcrm
+    volumes:
+      - postgre_volume:/var/lib/postgresql/data"
+
+  # ---------------  PGADMIN ---------------
+  pgAdmin:
+    image: dpage/pgadmin4:6.9
+    ports:
+      - 8081:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: readnetcrm@readnet.com.tr
+      PGADMIN_DEFAULT_PASSWORD: readnet-crm
+    restart: always
+
+volumes:
+  postgre_volume:

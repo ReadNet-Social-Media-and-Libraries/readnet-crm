@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/readnetcrm?ApplicationName=readnetcrm&currentSchema=crm
+    username: readnet-crm
+    password: readnet-crm
+    driver-class-name: org.postgresql.Driver
