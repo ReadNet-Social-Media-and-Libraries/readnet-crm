@@ -45,13 +45,23 @@ jobs:
       #  SPRING_DATASOURCE_USERNAME: readnet-crm
       #  SPRING_DATASOURCE_PASSWORD: readnet-crm
 
-    - name: Build & Push Docker Image
+    - name: Build and Push Docker Image for amd64
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: readnet/readnet-crm
-        tags: latest
+        tags: latest-amd64
         registry: docker.io
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile.amd64
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and Push Docker Image for arm64
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: readnet/readnet-crm
+        tags: latest-arm64
+        registry: docker.io
+        dockerfile: Dockerfile.arm64
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
