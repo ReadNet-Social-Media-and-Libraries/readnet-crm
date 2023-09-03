@@ -10,9 +10,9 @@ name: ReadNet CI/CD Workflow
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: [ "release/*" ]
   pull_request:
-    branches: [ "dev" ]
+    branches: [ "release/*" ]
 
 jobs:
   build:
