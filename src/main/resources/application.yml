@@ -4,3 +4,8 @@ spring:
     username: readnet-crm
     password: readnet-crm
     driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      # Auto ddl changing. Do not use on release environments.
+      ddl-auto: update
